@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainwindowadmin</class>
+ <widget class="QMainWindow" name="mainwindowadmin">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTableWidget" name="tableWidget">
+      <column>
+       <property name="text">
+        <string>Станок</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Страна-Производитель</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Количество ремонтов</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Год выпуска</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Тип станка</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Марка</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
