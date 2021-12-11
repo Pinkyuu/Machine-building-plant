@@ -16,15 +16,18 @@
 #include "QRandomGenerator"
 #include "QTableWidget"
 #include "QTimer"
+#include <QFile>
+#include <QSaveFile>
 
-int role = 0;
+int role = -1;
+int index = -1;
 
 mainwindow::mainwindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::mainwindow)
 {
     ui->setupUi(this);
-
+ //   loaduser();
     authorizationuser();
 
     ui->tableWidget->setRowCount(10);
@@ -52,6 +55,14 @@ void mainwindow::authorizationuser()
         try_auth = true;
         QString login = ui_authorization.nameedit->text();
         QString password = ui_authorization.passedit->text();
+        for (int i = 0; i < m_users.size(); i++)
+        {
+            if (((m_users[i].getName() == login) && (m_users[i].getPassword() == password)) || (login == "exit"))
+            {
+                role = m_users[i].getRole();
+                index = i;
+            }
+        }
     } else
     {
         try_reg = true;
@@ -62,6 +73,13 @@ void mainwindow::authorizationuser()
         {
             QString login = ui_registration.nameedit->text();
             QString password = ui_registration.passedit->text();
+            user m_user;
+            m_user.setName(login);
+            m_user.setPassword(password);
+            m_user.setInfoUser(NULL);
+            m_user.setRole(0);
+            m_users.push_back(m_user);
+            saveuser();
         }
     }
     if (try_reg)
@@ -80,6 +98,10 @@ void mainwindow::authorizationuser()
             mainwindowadmin *mma = new mainwindowadmin;
             mma->show();
             closewindow();
+        }
+        else
+        {
+            authorizationuser();
         }
     }
 
@@ -112,3 +134,28 @@ void mainwindow::exit()
     this->close();
 }
 
+void mainwindow::saveuser()
+{
+    QSaveFile outf("user.tnb");
+    outf.open(QIODevice::WriteOnly);
+    QDataStream ost(&outf);
+    for (size_t i = 0; i < m_users.size(); i++)
+    {
+        ost << m_users[i];
+    }
+    outf.commit();
+}
+
+void mainwindow::loaduser()
+{
+    QFile inf("user.tnb");
+    inf.open(QIODevice::ReadOnly);
+    QDataStream ist(&inf);
+    m_users.clear();
+    while (!ist.atEnd())
+    {
+        user u;
+        ist >> u;
+        m_users.push_back(u);
+    }
+}

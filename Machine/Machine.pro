@@ -13,25 +13,29 @@ SOURCES += \
     authorization.cpp \
     checkinfo.cpp \
     infouser.cpp \
+    machine.cpp \
     main.cpp \
     mainwindow.cpp \
     mainwindowadmin.cpp \
     registration.cpp \
     repair.cpp \
     setrole.cpp \
-    settings.cpp
+    settings.cpp \
+    user.cpp
 
 HEADERS += \
     adduser.h \
     authorization.h \
     checkinfo.h \
     infouser.h \
+    machine.h \
     mainwindow.h \
     mainwindowadmin.h \
     registration.h \
     repair.h \
     setrole.h \
-    settings.h
+    settings.h \
+    user.h
 
 FORMS += \
     adduser.ui \
