@@ -6,63 +6,170 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>970</width>
     <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>MainWindowAdmin</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QTableWidget" name="tableWidget">
-      <column>
-       <property name="text">
-        <string>Станок</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Страна-Производитель</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Количество ремонтов</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Год выпуска</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Тип станка</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Марка</string>
-       </property>
-      </column>
-     </widget>
-    </item>
-   </layout>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>10</y>
+      <width>621</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>Станок</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Страна-Производитель</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Количество ремонтов</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Год выпуска</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Тип станка</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Марка</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>10</y>
+      <width>321</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>Пользователь</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Роль</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Доп.информация</string>
+     </property>
+    </column>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>970</width>
      <height>20</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menusetting">
+    <property name="title">
+     <string>Manage</string>
+    </property>
+    <addaction name="setrole"/>
+    <addaction name="repair"/>
+    <addaction name="add"/>
+   </widget>
+   <addaction name="menusetting"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="setrole">
+   <property name="text">
+    <string>Установить роль</string>
+   </property>
+  </action>
+  <action name="repair">
+   <property name="text">
+    <string>Назначить ремонт</string>
+   </property>
+  </action>
+  <action name="add">
+   <property name="text">
+    <string>Добавить станок</string>
+   </property>
+  </action>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>repair</sender>
+   <signal>triggered()</signal>
+   <receiver>mainwindowadmin</receiver>
+   <slot>openrepair()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>484</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>add</sender>
+   <signal>triggered()</signal>
+   <receiver>mainwindowadmin</receiver>
+   <slot>opensettings()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>484</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>setrole</sender>
+   <signal>triggered()</signal>
+   <receiver>mainwindowadmin</receiver>
+   <slot>opensetrole()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>484</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>opensettings()</slot>
+  <slot>openrepair()</slot>
+  <slot>opensetrole()</slot>
+ </slots>
 </ui>

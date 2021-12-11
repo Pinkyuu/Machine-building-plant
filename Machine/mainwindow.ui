@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>1016</width>
     <height>600</height>
    </rect>
   </property>
@@ -14,49 +14,78 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QTableWidget" name="tableWidget">
-      <column>
-       <property name="text">
-        <string>Станок</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Страна-Производитель</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Количество ремонтов</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Год выпуска</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Тип станка</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Марка</string>
-       </property>
-      </column>
-     </widget>
-    </item>
-   </layout>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>9</y>
+      <width>681</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>Станок</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Страна-Производитель</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Количество ремонтов</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Год выпуска</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Тип станка</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Марка</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>10</y>
+      <width>311</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>Пользователь</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Роль</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Доп.Информация</string>
+     </property>
+    </column>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1016</width>
      <height>20</height>
     </rect>
    </property>

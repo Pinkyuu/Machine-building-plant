@@ -17,9 +17,13 @@ public:
 
 public slots:
     void authorizationuser();
+    void exit();
+    void closewindow();
 
 private slots:
     void on_tableWidget_cellDoubleClicked(int row, int column);
+
+    void on_tableWidget_2_cellDoubleClicked(int row, int column);
 
 private:
     Ui::mainwindow *ui;

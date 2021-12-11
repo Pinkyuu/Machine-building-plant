@@ -7,36 +7,80 @@
     <x>0</x>
     <y>0</y>
     <width>504</width>
-    <height>365</height>
+    <height>143</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>481</width>
-     <height>341</height>
+     <x>9</x>
+     <y>20</y>
+     <width>41</width>
+     <height>16</height>
     </rect>
    </property>
-   <column>
-    <property name="text">
-     <string>Пользователь</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Роль</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Информация</string>
-    </property>
-   </column>
+   <property name="text">
+    <string>Имя</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>74</x>
+     <y>20</y>
+     <width>411</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_2">
+   <property name="geometry">
+    <rect>
+     <x>74</x>
+     <y>59</y>
+     <width>411</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>59</y>
+     <width>41</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Роль</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>98</y>
+     <width>63</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Информация</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_3">
+   <property name="geometry">
+    <rect>
+     <x>78</x>
+     <y>98</y>
+     <width>401</width>
+     <height>41</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <resources/>
