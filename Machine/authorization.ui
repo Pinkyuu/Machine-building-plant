@@ -47,6 +47,13 @@
      </property>
     </widget>
    </item>
+   <item row="4" column="0">
+    <widget class="QPushButton" name="Regbutton">
+     <property name="text">
+      <string>Зарегистрироваться</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources/>
@@ -83,5 +90,24 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>Regbutton</sender>
+   <signal>clicked()</signal>
+   <receiver>authorization</receiver>
+   <slot>openreg()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>65</x>
+     <y>133</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>76</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>openreg()</slot>
+ </slots>
 </ui>

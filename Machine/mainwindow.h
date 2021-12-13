@@ -23,6 +23,7 @@ public slots:
     void closewindow();
     void saveuser();
     void loaduser();
+    void registration();
     /*void savemachine();
     void loadmachine();*/
 

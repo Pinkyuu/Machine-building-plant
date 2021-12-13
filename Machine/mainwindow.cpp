@@ -28,8 +28,9 @@ mainwindow::mainwindow(QWidget *parent) :
 {
     ui->setupUi(this);
  //   loaduser();
-    authorizationuser();
 
+    registration();
+    authorizationuser();
     ui->tableWidget->setRowCount(10);
     ui->tableWidget->setColumnCount(6);
     ui->tableWidget_2->setRowCount(4);
@@ -49,62 +50,61 @@ void mainwindow::authorizationuser()
     Ui::authorization ui_authorization;
     ui_authorization.setupUi(auth);
     bool try_auth = false;
-    bool try_reg = false;
-    if (auth->exec() == QDialog::Accepted)
-    {
-        try_auth = true;
-        QString login = ui_authorization.nameedit->text();
-        QString password = ui_authorization.passedit->text();
-        for (int i = 0; i < m_users.size(); i++)
+        if (auth->exec() == QDialog::Accepted)
         {
-            if (((m_users[i].getName() == login) && (m_users[i].getPassword() == password)) || (login == "exit"))
+            try_auth = true;
+            QString login = ui_authorization.nameedit->text();
+            QString password = ui_authorization.passedit->text();
+
+            for (size_t i = 0; i < m_users.size(); i++)
             {
-                role = m_users[i].getRole();
-                index = i;
+                if ((m_users[i].getName() == login) && (m_users[i].getPassword() == password))
+                {
+                    role = m_users[i].getRole();
+                    index = i;
+                }
             }
-        }
-    } else
-    {
-        try_reg = true;
-        QDialog *reg = new QDialog;
-        Ui::registration ui_registration;
-        ui_registration.setupUi(reg);
-        if (reg->exec() == QDialog::Accepted)
+
+        } else
         {
-            QString login = ui_registration.nameedit->text();
-            QString password = ui_registration.passedit->text();
-            user m_user;
-            m_user.setName(login);
-            m_user.setPassword(password);
-            m_user.setInfoUser(NULL);
-            m_user.setRole(0);
-            m_users.push_back(m_user);
-            saveuser();
-        }
-    }
-    if (try_reg)
-    {
-        authorizationuser();
-    }
-    if (try_auth)
-    {
-        if (role == 0)
-        {
-            QMessageBox::information(0, 0, "You'r succeful authorisation.");
-        }
-        else if (role > 0)
-        {
-            QMessageBox::information(0, 0, "You'r succeful authorisation.");
-            mainwindowadmin *mma = new mainwindowadmin;
-            mma->show();
             closewindow();
         }
-        else
+        if (try_auth)
         {
-            authorizationuser();
-        }
-    }
+            if (role > 0)
+            {
+                QMessageBox::information(0, 0, "You'r succeful authorisation.");
+                mainwindowadmin *mma = new mainwindowadmin;
+                mma->show();
+                this->close();
+            }
+            else if (role == 0)
+            {
+                QMessageBox::information(0, 0, "You'r succeful authorisation.");
+                mainwindow *mm = new mainwindow;
+                mm->show();
+                this->close();
+            }
+            else
+            {
+                QMessageBox::information(0, 0, "User not finding.\nTry again.");
+                authorizationuser();
+            }
 
+        }
+}
+
+void mainwindow::registration()
+{
+    QDialog *reg = new QDialog;
+    Ui::registration ui_registration;
+    ui_registration.setupUi(reg);
+    reg->show();
+    if (reg->exec() == QDialog::Accepted)
+    {
+        QString login = ui_registration.nameedit->text();
+        QString password = ui_registration.passedit->text();
+    }
 }
 
 mainwindow::~mainwindow()

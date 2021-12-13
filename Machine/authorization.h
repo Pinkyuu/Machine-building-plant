@@ -14,8 +14,8 @@ class authorization : public QDialog
 public:
     explicit authorization(QWidget *parent = nullptr);
     ~authorization();
-
 private slots:
+
 
 private:
     Ui::authorization *ui;
