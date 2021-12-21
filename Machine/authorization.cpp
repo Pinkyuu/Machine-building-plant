@@ -1,8 +1,6 @@
 #include "authorization.h"
 #include "ui_authorization.h"
-#include "registration.h"
 #include "ui_registration.h"
-#include "registration.h"
 #include "ui_mainwindow.h"
 #include "ui_mainwindowadmin.h"
 #include "mainwindow.h"
@@ -16,8 +14,7 @@ authorization::authorization(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::authorization)
 {
-    //loaduser();
-    user u;
+    /*user u;
     u.setName("admin");
     u.setPassword("admin");
     u.setRole(1);
@@ -30,13 +27,14 @@ authorization::authorization(QWidget *parent) :
     u2.setRole(0);
     u2.setInfoUser("it's user");
     m_users.push_back(u2);
-    saveuser();
+    saveuser();*/
     ui->setupUi(this);
+    loaduser();
 }
 
 void authorization::open_mainwindow()
 {
-    QMessageBox::information(0, "BudgetControl", QString("Вы успешно авторизированы."));
+    QMessageBox::information(0, "BuildMachine-plant", QString("Вы успешно авторизированы."));
     if (m_auth_user.getRole() == 0)
     {
         mainwindow *mm = new mainwindow;

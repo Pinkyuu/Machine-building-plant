@@ -32,4 +32,5 @@ private:
     user m_auth_user;
 };
 
+
 #endif // AUTHORIZATION_H

@@ -53,11 +53,14 @@ int &user::getRole()
 
 void user::save(QDataStream &ost) const
 {
-    ost << name << password << infouser << role;
+    ost << name << password << infouser << QString("%1").arg(role);
 }
 
 void user::load(QDataStream &ist)
 {
-    ist << name << password << infouser << role;
+    QString tmp;
+    ist << name << password << infouser;
+    ist >> tmp;
+    role = tmp.toInt();
 }
 

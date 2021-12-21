@@ -72,10 +72,12 @@ QString &machine::getMark()
 
 void machine::save(QDataStream &ost) const
 {
-    ost << ID << name << country << Date << count_repair << type << mark;
+    ost << QString("%1").arg(ID) << name << country << Date << type << mark;
 }
 
 void machine::load(QDataStream &ist)
 {
-    ist << ID << name << country << Date << count_repair << type << mark;
+    QString tmp;
+    ist << tmp << name << country << Date << type << mark;
+    ID = tmp.toInt();
 }

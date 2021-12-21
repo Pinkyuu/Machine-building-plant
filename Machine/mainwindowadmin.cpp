@@ -1,11 +1,14 @@
 #include "mainwindowadmin.h"
 #include "ui_mainwindowadmin.h"
+
 #include "checkinfo.h"
-#include "ui_checkinfo.h"
+
 #include "infouser.h"
 #include "ui_infouser.h"
+
 #include "ui_settings.h"
 #include "settings.h"
+
 #include "repair.h"
 #include "ui_repair.h"
 

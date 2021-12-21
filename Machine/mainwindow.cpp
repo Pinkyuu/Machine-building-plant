@@ -1,13 +1,14 @@
 #include "mainwindow.h"
-#include "authorization.h"
 #include "ui_mainwindow.h"
+
+#include "authorization.h"
 #include "ui_authorization.h"
-#include "registration.h"
+
 #include "ui_registration.h"
+
 #include "infouser.h"
 #include "ui_infouser.h"
-#include "mainwindowadmin.h"
-#include "ui_mainwindowadmin.h"
+
 #include "settings.h"
 
 #include "QDialog"

@@ -52,10 +52,12 @@ QDate &repairs::getEnRepair()
 
 void repairs::save(QDataStream &ost) const
 {
-    ost << ID << Type << StRepair << EnRepair;
+    ost << QString("%1").arg(ID) << Type << StRepair << EnRepair;
 }
 
 void repairs::load(QDataStream &ist)
 {
-    ist << ID << Type << StRepair << EnRepair;
+    QString tmp;
+    ist << tmp << Type << StRepair << EnRepair;
+    ID = tmp.toInt();
 }

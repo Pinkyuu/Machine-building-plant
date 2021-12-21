@@ -16,7 +16,6 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     mainwindowadmin.cpp \
-    registration.cpp \
     repair.cpp \
     repairs.cpp \
     settings.cpp \
@@ -29,7 +28,6 @@ HEADERS += \
     machine.h \
     mainwindow.h \
     mainwindowadmin.h \
-    registration.h \
     repair.h \
     repairs.h \
     settings.h \

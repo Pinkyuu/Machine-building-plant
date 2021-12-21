@@ -28,7 +28,6 @@ private:
     QString name;
     QString country;
     QDate Date;
-    int count_repair;
     QString type;
     QString mark;
 };
