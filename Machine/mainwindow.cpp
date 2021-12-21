@@ -4,12 +4,11 @@
 #include "ui_authorization.h"
 #include "registration.h"
 #include "ui_registration.h"
-#include "checkinfo.h"
-#include "ui_checkinfo.h"
 #include "infouser.h"
 #include "ui_infouser.h"
 #include "mainwindowadmin.h"
 #include "ui_mainwindowadmin.h"
+#include "settings.h"
 
 #include "QDialog"
 #include "QMessageBox"
@@ -19,22 +18,41 @@
 #include <QFile>
 #include <QSaveFile>
 
-int role = -1;
-int index = -1;
-
 mainwindow::mainwindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::mainwindow)
 {
     ui->setupUi(this);
- //   loaduser();
+    on_reload_clicked();
+    repairs a;
+    a.setID(0);
+    a.setEnRepair(QDate::currentDate());
+    a.setStRepair(QDate::currentDate());
+    a.setType("Hard");
+    m_repairs.push_back(a);
+    machine b;
+    b.setCountry("Russia");
+    b.setDate(QDate::currentDate());
+    b.setID(0);
+    b.setMark("Pejo");
+    b.setName("AutoBuild");
+    b.setType("Hard");
+    machine c;
+    c.setCountry("USA");
+    c.setDate(QDate::currentDate());
+    c.setID(1);
+    c.setMark("Lada");
+    c.setName("ArmyBuild");
+    c.setType("Hard");
+    m_machine.push_back(b);
+    m_machine.push_back(c);
 
-    registration();
-    authorizationuser();
-    ui->tableWidget->setRowCount(10);
-    ui->tableWidget->setColumnCount(6);
-    ui->tableWidget_2->setRowCount(4);
-    ui->tableWidget_2->setColumnCount(2);
+}
+
+void mainwindow::setUsers(std::vector<user> m_users_)
+{
+    m_users = m_users_;
+    on_reload_clicked();
 }
 
 void mainwindow::closewindow()
@@ -44,69 +62,6 @@ void mainwindow::closewindow()
         updateTimer->start();
 }
 
-void mainwindow::authorizationuser()
-{
-    QDialog *auth = new QDialog;
-    Ui::authorization ui_authorization;
-    ui_authorization.setupUi(auth);
-    bool try_auth = false;
-        if (auth->exec() == QDialog::Accepted)
-        {
-            try_auth = true;
-            QString login = ui_authorization.nameedit->text();
-            QString password = ui_authorization.passedit->text();
-
-            for (size_t i = 0; i < m_users.size(); i++)
-            {
-                if ((m_users[i].getName() == login) && (m_users[i].getPassword() == password))
-                {
-                    role = m_users[i].getRole();
-                    index = i;
-                }
-            }
-
-        } else
-        {
-            closewindow();
-        }
-        if (try_auth)
-        {
-            if (role > 0)
-            {
-                QMessageBox::information(0, 0, "You'r succeful authorisation.");
-                mainwindowadmin *mma = new mainwindowadmin;
-                mma->show();
-                this->close();
-            }
-            else if (role == 0)
-            {
-                QMessageBox::information(0, 0, "You'r succeful authorisation.");
-                mainwindow *mm = new mainwindow;
-                mm->show();
-                this->close();
-            }
-            else
-            {
-                QMessageBox::information(0, 0, "User not finding.\nTry again.");
-                authorizationuser();
-            }
-
-        }
-}
-
-void mainwindow::registration()
-{
-    QDialog *reg = new QDialog;
-    Ui::registration ui_registration;
-    ui_registration.setupUi(reg);
-    reg->show();
-    if (reg->exec() == QDialog::Accepted)
-    {
-        QString login = ui_registration.nameedit->text();
-        QString password = ui_registration.passedit->text();
-    }
-}
-
 mainwindow::~mainwindow()
 {
     delete ui;
@@ -114,19 +69,17 @@ mainwindow::~mainwindow()
 
 void mainwindow::on_tableWidget_cellDoubleClicked(int row, int column)
 {
-    QDialog *check = new QDialog;
-    Ui::checkinfo ui_checkinfo;
-    ui_checkinfo.setupUi(check);
-    check->exec();
+    settings ci;
+    ci.info(&m_machine, row, column, 0, &m_repairs);
+    ci.exec();
 }
 
 
 void mainwindow::on_tableWidget_2_cellDoubleClicked(int row, int column)
 {
-    QDialog *infous = new QDialog;
-    Ui::infouser ui_infouser;
-    ui_infouser.setupUi(infous);
-    infous->exec();
+    infouser uf;
+    uf.info(&m_users, row, column, 0);
+    uf.exec();
 }
 
 void mainwindow::exit()
@@ -134,28 +87,32 @@ void mainwindow::exit()
     this->close();
 }
 
-void mainwindow::saveuser()
+
+void mainwindow::on_reload_clicked()
 {
-    QSaveFile outf("user.tnb");
-    outf.open(QIODevice::WriteOnly);
-    QDataStream ost(&outf);
-    for (size_t i = 0; i < m_users.size(); i++)
+    ui->tableWidget->setRowCount(m_machine.size());
+    ui->tableWidget->setColumnCount(4);
+    ui->tableWidget_2->setRowCount(m_users.size());
+    ui->tableWidget_2->setColumnCount(2);
+
+    for (int i = 0; i < m_users.size(); i ++)
     {
-        ost << m_users[i];
+        QTableWidgetItem *usr = new QTableWidgetItem(tr("%1").arg(m_users[i].getName()));
+        QTableWidgetItem *rle = new QTableWidgetItem(tr("%1").arg(m_users[i].getRole()));
+        ui->tableWidget_2->setItem(i, 0, usr);
+        ui->tableWidget_2->setItem(i, 1, rle);
     }
-    outf.commit();
+    for (int i = 0; i<m_machine.size(); i++)
+    {
+        QTableWidgetItem *nme = new QTableWidgetItem(tr("%1").arg(m_machine[i].getName()));
+        QTableWidgetItem *cntry = new QTableWidgetItem(tr("%1").arg(m_machine[i].getCountry()));
+        QTableWidgetItem *mrk = new QTableWidgetItem(tr("%1").arg(m_machine[i].getMark()));
+        QTableWidgetItem *tpe = new QTableWidgetItem(tr("%1").arg(m_machine[i].getType()));
+        ui->tableWidget->setItem(i, 0, nme);
+        ui->tableWidget->setItem(i, 1, cntry);
+        ui->tableWidget->setItem(i, 2, tpe);
+        ui->tableWidget->setItem(i, 3, mrk);
+
+    }
 }
 
-void mainwindow::loaduser()
-{
-    QFile inf("user.tnb");
-    inf.open(QIODevice::ReadOnly);
-    QDataStream ist(&inf);
-    m_users.clear();
-    while (!ist.atEnd())
-    {
-        user u;
-        ist >> u;
-        m_users.push_back(u);
-    }
-}

@@ -12,3 +12,5 @@ registration::~registration()
 {
     delete ui;
 }
+
+

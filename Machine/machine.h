@@ -17,8 +17,6 @@ public:
     QString &getCountry();
     void setDate(QDate);
     QDate &getDate();
-    void setCount(int);
-    int &getCount();
     void setType(QString);
     QString &getType();
     void setMark(QString);

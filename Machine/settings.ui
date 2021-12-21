@@ -6,57 +6,96 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>587</width>
-    <height>426</height>
+    <width>559</width>
+    <height>407</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>80</y>
-     <width>151</width>
+     <x>190</x>
+     <y>360</y>
+     <width>171</width>
      <height>41</height>
     </rect>
    </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
   </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit_2">
+  <widget class="QPlainTextEdit" name="plainTextEdit">
    <property name="enabled">
     <bool>false</bool>
    </property>
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>40</y>
+     <x>400</x>
+     <y>30</y>
      <width>151</width>
      <height>41</height>
     </rect>
    </property>
    <property name="plainText">
-    <string>    Страна-производитель</string>
+    <string>    Количество ремонтов</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QLineEdit" name="markedit">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>380</y>
-     <width>541</width>
-     <height>31</height>
+     <x>10</x>
+     <y>70</y>
+     <width>81</width>
+     <height>41</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Добавить станок</string>
-   </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
+     <x>10</x>
+     <y>110</y>
+     <width>541</width>
+     <height>251</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit_4">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="plainText">
+    <string>      Марка</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="countryedit">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>70</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="nameedit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
      <width>541</width>
      <height>21</height>
     </rect>
@@ -68,9 +107,9 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>40</y>
-     <width>161</width>
+     <x>90</x>
+     <y>30</y>
+     <width>111</width>
      <height>41</height>
     </rect>
    </property>
@@ -79,79 +118,102 @@
 </string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QSpinBox" name="countedit">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>80</y>
-     <width>81</width>
-     <height>41</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>410</x>
-     <y>40</y>
-     <width>151</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="plainText">
-    <string>    Количество ремонтов</string>
-   </property>
-  </widget>
-  <widget class="QDateEdit" name="dateEdit">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>80</y>
-     <width>161</width>
-     <height>41</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QSpinBox" name="spinBox">
-   <property name="geometry">
-    <rect>
-     <x>410</x>
-     <y>80</y>
+     <x>400</x>
+     <y>70</y>
      <width>151</width>
      <height>41</height>
     </rect>
    </property>
   </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit_4">
+  <widget class="QDateEdit" name="dateedit">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>70</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit_2">
    <property name="enabled">
     <bool>false</bool>
    </property>
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>40</y>
-     <width>81</width>
+     <x>270</x>
+     <y>30</y>
+     <width>131</width>
      <height>41</height>
     </rect>
    </property>
    <property name="plainText">
-    <string>      Марка</string>
+    <string>Страна-производитель</string>
    </property>
   </widget>
-  <widget class="QTableView" name="tableView">
+  <widget class="QPlainTextEdit" name="plainTextEdit_5">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>130</y>
-     <width>541</width>
-     <height>241</height>
+     <x>200</x>
+     <y>30</y>
+     <width>71</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="plainText">
+    <string>       Тип</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="typeedit">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>70</y>
+     <width>71</width>
+     <height>41</height>
     </rect>
    </property>
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>settings</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>settings</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

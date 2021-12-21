@@ -20,7 +20,7 @@
       <x>9</x>
       <y>9</y>
       <width>681</width>
-      <height>541</height>
+      <height>521</height>
      </rect>
     </property>
     <column>
@@ -31,16 +31,6 @@
     <column>
      <property name="text">
       <string>Страна-Производитель</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Количество ремонтов</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Год выпуска</string>
      </property>
     </column>
     <column>
@@ -59,8 +49,8 @@
      <rect>
       <x>700</x>
       <y>10</y>
-      <width>311</width>
-      <height>541</height>
+      <width>301</width>
+      <height>521</height>
      </rect>
     </property>
     <column>
@@ -79,6 +69,19 @@
      </property>
     </column>
    </widget>
+   <widget class="QPushButton" name="reload">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>530</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Обновить</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -93,5 +96,22 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>reload</sender>
+   <signal>clicked()</signal>
+   <receiver>mainwindow</receiver>
+   <slot>update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>49</x>
+     <y>560</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>507</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

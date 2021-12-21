@@ -11,7 +11,6 @@ CONFIG += c++11
 SOURCES += \
     adduser.cpp \
     authorization.cpp \
-    checkinfo.cpp \
     infouser.cpp \
     machine.cpp \
     main.cpp \
@@ -19,34 +18,31 @@ SOURCES += \
     mainwindowadmin.cpp \
     registration.cpp \
     repair.cpp \
-    setrole.cpp \
+    repairs.cpp \
     settings.cpp \
     user.cpp
 
 HEADERS += \
     adduser.h \
     authorization.h \
-    checkinfo.h \
     infouser.h \
     machine.h \
     mainwindow.h \
     mainwindowadmin.h \
     registration.h \
     repair.h \
-    setrole.h \
+    repairs.h \
     settings.h \
     user.h
 
 FORMS += \
     adduser.ui \
     authorization.ui \
-    checkinfo.ui \
     infouser.ui \
     mainwindow.ui \
     mainwindowadmin.ui \
     registration.ui \
     repair.ui \
-    setrole.ui \
     settings.ui
 
 # Default rules for deployment.

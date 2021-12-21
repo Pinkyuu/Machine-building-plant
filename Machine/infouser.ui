@@ -6,19 +6,35 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>504</width>
-    <height>143</height>
+    <width>516</width>
+    <height>166</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>130</y>
+     <width>341</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
+  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>9</x>
-     <y>20</y>
-     <width>41</width>
+     <x>19</x>
+     <y>38</y>
+     <width>19</width>
      <height>16</height>
     </rect>
    </property>
@@ -26,32 +42,58 @@
     <string>Имя</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>74</x>
-     <y>20</y>
-     <width>411</width>
-     <height>21</height>
+     <x>19</x>
+     <y>66</y>
+     <width>63</width>
+     <height>16</height>
     </rect>
    </property>
+   <property name="text">
+    <string>Информация</string>
+   </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="infoname">
    <property name="geometry">
     <rect>
-     <x>74</x>
-     <y>59</y>
+     <x>88</x>
+     <y>38</y>
      <width>411</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
+  <widget class="QLineEdit" name="infoinfo">
+   <property name="geometry">
+    <rect>
+     <x>88</x>
+     <y>66</y>
+     <width>411</width>
+     <height>61</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="inforole">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>10</y>
+     <width>39</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>1</number>
+   </property>
+  </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>9</x>
-     <y>59</y>
-     <width>41</width>
+     <x>20</x>
+     <y>10</y>
+     <width>24</width>
      <height>16</height>
     </rect>
    </property>
@@ -59,30 +101,40 @@
     <string>Роль</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>9</x>
-     <y>98</y>
-     <width>63</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Информация</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
-   <property name="geometry">
-    <rect>
-     <x>78</x>
-     <y>98</y>
-     <width>401</width>
-     <height>41</height>
-    </rect>
-   </property>
-  </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>infouser</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>infouser</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

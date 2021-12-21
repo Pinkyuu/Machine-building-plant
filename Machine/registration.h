@@ -15,6 +15,7 @@ public:
     explicit registration(QWidget *parent = nullptr);
     ~registration();
 
+
 private:
     Ui::registration *ui;
 };

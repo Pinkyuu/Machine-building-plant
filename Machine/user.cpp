@@ -1,4 +1,5 @@
 #include "user.h"
+#include <QSaveFile>
 
 user::user()
 {
@@ -45,17 +46,18 @@ void user::setRole(int role_)
     role = role_;
 }
 
-int user::getRole()
+int &user::getRole()
 {
     return role;
 }
 
 void user::save(QDataStream &ost) const
 {
-    ost << name << password << infouser;
+    ost << name << password << infouser << role;
 }
 
 void user::load(QDataStream &ist)
 {
-    ist << name << password << infouser;
+    ist << name << password << infouser << role;
 }
+

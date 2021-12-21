@@ -50,16 +50,6 @@ QDate &machine::getDate()
     return Date;
 }
 
-void machine::setCount(int count_repair_)
-{
-    count_repair = count_repair_;
-}
-
-int &machine::getCount()
-{
-    return count_repair;
-}
-
 void machine::setType(QString type_)
 {
     type = type_;

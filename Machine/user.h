@@ -12,10 +12,10 @@ public:
     QString &getName();
     void setPassword(QString);
     QString &getPassword();
-    QString &getInfoUser();
     void setInfoUser(QString);
+    QString &getInfoUser();
     void setRole(int);
-    int getRole();
+    int &getRole();
     void save(QDataStream &ost) const;
     void load(QDataStream &ist);
 private:

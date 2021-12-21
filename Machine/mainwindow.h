@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "user.h"
 #include "machine.h"
+#include "repairs.h"
 
 namespace Ui {
 class mainwindow;
@@ -18,12 +19,9 @@ public:
     ~mainwindow();
 
 public slots:
-    void authorizationuser();
     void exit();
     void closewindow();
-    void saveuser();
-    void loaduser();
-    void registration();
+    void setUsers(std::vector<user>);
     /*void savemachine();
     void loadmachine();*/
 
@@ -31,10 +29,14 @@ private slots:
     void on_tableWidget_cellDoubleClicked(int row, int column);
     void on_tableWidget_2_cellDoubleClicked(int row, int column);
 
+    void on_reload_clicked();
+
 private:
+    user m_auth_user;
     Ui::mainwindow *ui;
     std::vector<user> m_users;
     std::vector<machine> m_machine;
+    std::vector<repairs> m_repairs;
 };
 
 #endif // MAINWINDOW_H
